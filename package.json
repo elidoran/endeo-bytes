@@ -1,0 +1,38 @@
+{
+  "name": "@endeo/bytes",
+  "version": "0.1.0",
+  "description": "Standard endeo byte markers.",
+  "main": "lib/index.js",
+  "files": [
+    "lib/index.js"
+  ],
+  "keywords": [],
+  "author": "Eli Doran <eli+npm@elidoran.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "coffeelint -f build/coffeelint.json lib",
+    "build": "coffee --bare --compile --no-header lib",
+    "clean": "rm -rf ./lib/*.js",
+    "prepublish": "npm run build",
+    "postpublish": "npm run clean",
+    "test": "mocha --compilers coffee:coffee-script/register --reporter spec --bail --check-leaks test/lib",
+    "test4": "nave use 4.8 npm test",
+    "test6": "nave use 6.10 npm test",
+    "test7": "nave use 7.10 npm test",
+    "test-all": "npm run test4 && npm run test6 && npm run test7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/elidoran/endeo-bytes.git"
+  },
+  "bugs": "http://github.com/elidoran/endeo-bytes/issues",
+  "devDependencies": {
+    "coffee-script": "^1.12.6",
+    "coffeelint": "^1.16.0",
+    "mocha": "^3.4.1"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=4"
+  }
+}
